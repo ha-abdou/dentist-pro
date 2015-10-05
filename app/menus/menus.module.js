@@ -1,0 +1,1 @@
+angular.module('dentist.menus',['ui.router']);

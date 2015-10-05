@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- font-awesome -->
+    <link href="vendor/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- end font-awesome -->
+
+    <!-- css Bootstrap Material Design -->
+    <link href="vendor/css/bootstrap.css" rel="stylesheet">
+    <link href="vendor/css/roboto.css" rel="stylesheet">
+    <link href="vendor/css/material.css" rel="stylesheet">
+    <link href="vendor/css/ripples.css" rel="stylesheet">
+    <!-- end css Bootstrap Material Design -->
+
+
+
+    <!-- css app -->
+    <link href="vendor/css/style.css" rel="stylesheet">
+    <!-- end css app -->
+
+    <title>Dentist Pro</title>
+
+</head>
+
+<body ng-app="dentist">
+
+    <div ui-view></div>
+
+
+
+
+
+<!-- ======================================= -->
+
+<!-- js Bootstrap Material Design -->
+<script src="vendor/js/jquery.js"></script>
+<script src="vendor/js/bootstrap.js"></script>
+<script src="vendor/js/ripples.js"></script>
+<script src="vendor/js/material.js"></script>
+<!-- ens js Bootstrap Material Design -->
+
+<!-- js AngularJS -->
+<script src="vendor/js/angular.js"></script>
+<script src="vendor/js/angular-animate.js"></script>
+<script src="vendor/js/angular-ui-router.js"></script>
+<!--<script src="vendor/js/angular-sanitize.js"></script>-->
+<script src="vendor/js/angular-cookies.js"></script>
+<!-- end js AngularJS -->
+
+<script src="vendor/js/spin.js"></script>
+<script src="vendor/js/angular-spinner.js"></script>
+
+<!-- js App -->
+<script src="app/app.module.js"></script>
+<script src="app/app.config.js"></script>
+
+<script src="app/menus/menus.module.js"></script>
+<script src="app/menus/menus.routes.js"></script>
+<script src="app/menus/menus.controllers.js"></script>
+
+<script src="app/statistics/statistics.module.js"></script>
+<script src="app/statistics/statistics.routes.js"></script>
+<script src="app/statistics/statistics.controllers.js"></script>
+
+<script src="app/praticiens/praticiens.module.js"></script>
+<script src="app/praticiens/praticiens.routes.js"></script>
+<script src="app/praticiens/praticiens.controllers.js"></script>
+<script src="app/praticiens/praticiens.services.js"></script>
+<script src="app/praticiens/praticiens.directives.js"></script>
+
+<script src="app/db/db.module.js"></script>
+<script src="app/db/db.services.js"></script>
+<!-- end js App -->
+
+<script>
+    function initMaterial() {
+        $.material.init();
+    }
+    $(document).ready(function() {
+        initMaterial();
+    });
+</script>
+
+</body>
+
+</html>

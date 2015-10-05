@@ -1,0 +1,19 @@
+{
+  "name": "dentist-pro",
+  "version": "0.0.1",
+  "description": "software to manage dental clinic",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "abdou",
+  "license": "ToDo",
+  "dependencies": {
+    "child-process-promise": "^1.1.0",
+    "mysql": "^2.9.0",
+    "path": "^0.12.7"
+  },
+  "window": {
+    "toolbar": true
+  }
+}

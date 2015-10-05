@@ -1,0 +1,18 @@
+<div class="jumbotron" style="margin-left: 20px;margin-right: 20px;">
+
+    <div class="row">
+
+        <div class="col-xs-8 col-xs-offset-2">
+            <h3>DR. {{ praticien.name + " " + praticien.last_name }}</h3>
+            <h3 ng-if="praticien.tel != 0">tel {{ praticien.tel }}</h3>
+            <h2>todo (list of payment , comment , ...)</h2>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    //todo remove to global
+    initMaterial();
+</script>

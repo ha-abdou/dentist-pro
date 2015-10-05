@@ -1,0 +1,24 @@
+<div class="jumbotron" style="margin-left: 20px;margin-right: 20px;">
+    <div class="row">
+        <div class="list-group">
+            <div ng-repeat="praticien in praticiens" class="col-xs-4">
+                <div class="list-group-item">
+                    <div class="row-action-primary">
+                        <i class="mdi-file-folder"></i>
+                    </div>
+                    <div class="row-content">
+                        <h4 class="list-group-item-heading">{{praticien.name + " " + praticien.last_name}}</h4>
+                        <p class="list-group-item-text"><a ng-click="switch(praticien)" class="btn btn-primary">switch</a></p>
+                    </div>
+                </div>
+                <div class="list-group-separator"></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<script>
+    //todo remove to global
+    initMaterial();
+</script>

@@ -1,0 +1,61 @@
+<span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1">
+    <div id="custom-spinner" class=""></div>
+</span>
+<div class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder fa-lg"></i> Dossiers <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="dossiers.html#/list"><i class="fa fa-search"></i> Search</a></li>
+                    <li><a href="dossiers.html#/add"><i class="fa fa-plus"></i> Add</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Other</li>
+                    <li><a href="dossiers.html#/advenced_search"><i class="fa fa-search-plus"></i> Advanced Search</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-md fa-lg"></i> Praticiens <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#/index/praticiens/chang"><i class="fa fa-random"></i> Changer</a></li>
+                    <li><a href="#/index/praticiens/list"><i class="fa fa-list"></i> List</a></li>
+                    <li><a href="#/index/praticiens/new"><i class="fa fa-plus"></i> New</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#/index/statistics/recette"><i class="fa fa-usd fa-lg"></i> Recettes</a></li>
+
+            <li><a href="javascript:void(0)"><i class="fa fa-bar-chart fa-lg"></i> Statistique</a></li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs fa-lg"></i> parametre <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="dossiers.html#/list">Todo</a></li>
+                    <li><a href="dossiers.html#/add">Chang</a></li>
+                    <li><a href="dossiers.html#/advenced_search">New</a></li>
+                </ul>
+            </li>
+
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="javascript:void(0)">{{current_praticien}}</a></li>
+        </ul>
+    </div>
+</div>
+
+<div ui-view=""></div>
+
+<script>
+    //todo remove to global
+    initMaterial();
+</script>

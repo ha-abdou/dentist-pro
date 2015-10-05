@@ -1,0 +1,35 @@
+<div class="jumbotron" style="margin-left: 20px;margin-right: 20px;">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <table class="table table-striped table-hover">
+                <h3>list des praticiens :</h3>
+                <thead>
+                <tr>
+                    <th>Praticien</th>
+                    <th>Tel</th>
+                    <th>action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="praticien in praticiens">
+                    <td>DR. {{praticien.name + " " + praticien.last_name }}</td>
+                    <td><div ng-if="praticien.tel != 0">{{praticien.tel}}</div></td>
+                    <td>
+                        <a href="#/index/praticiens/edit/{{praticien.id}}" class="btn btn-success btn-raised btn-xs bm">Edit</a>
+                        <a href="#/index/praticiens/view/{{praticien.id}}" class="btn btn-info btn-raised btn-xs bm">view</a>
+                        <a ng-click="delete(praticien)" class="btn btn-danger btn-raised btn-xs bm">delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</div>
+
+<script>
+    //todo remove to global
+    initMaterial();
+</script>
