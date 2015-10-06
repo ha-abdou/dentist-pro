@@ -6,9 +6,10 @@
 
 ### How do I get set up? ###
 
+* git clone
 * cd /to/the/repo
-* npm install --save
-*..
+* npm install
+* ...
 
 ### Contribution guidelines ###
 
