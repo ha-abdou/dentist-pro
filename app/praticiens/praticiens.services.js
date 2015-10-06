@@ -1,6 +1,13 @@
+/**
+ * @table : praticiens
+ * @fields : id , name , last_name , tel
+ * @author : abdou
+ * @description : factory for practiciens
+ * @todo update current_praticien on edit praticien
+ */
+
 angular.module('dentist.praticiens')
     .factory('praticiens',function($q,connections,toSqlSafe,$cookies){
-       //$cookies.putObject('current_praticien',{name:'e'});
 
        return{
            upDate: function(user){
@@ -93,8 +100,6 @@ angular.module('dentist.praticiens')
                        }
                    );
                }
-
-
                return deferred.promise;
            },
            getCurrent: function (){

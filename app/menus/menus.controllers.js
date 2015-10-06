@@ -1,5 +1,5 @@
 angular.module('dentist.menus')
-    .controller('MainCtrl' , function($scope , usSpinnerService , praticiens , $state){
+    .controller('MainCtrl' , function($scope , usSpinnerService , praticiens , $state ){
         $scope.startSpin = function(){
             usSpinnerService.spin('spinner-1');
         };
@@ -16,7 +16,7 @@ angular.module('dentist.menus')
 
         if (praticiens.getCurrent().id) {
             $scope.setCurrent(praticiens.getCurrent());
-            $state.go('praticiens_list');
+            //$state.go('praticiens_list');
         } else {
             $state.go('login');
         }

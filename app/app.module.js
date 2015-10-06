@@ -7,7 +7,7 @@ var dentist = angular.module('dentist',
 
         'ui.router','angularSpinner',
 
-        'dentist.menus','dentist.statistics','dentist.praticiens','dentist.db'
+        'dentist.menus','dentist.statistics','dentist.praticiens','dentist.db','dentist.dossier'
 
     ]
 );

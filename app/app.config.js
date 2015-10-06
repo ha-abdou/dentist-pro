@@ -1,4 +1,4 @@
-dentist.config(function($stateProvider , $urlRouterProvider , usSpinnerConfigProvider) {
+dentist.config(function($stateProvider , $urlRouterProvider , usSpinnerConfigProvider ) {
     usSpinnerConfigProvider.setDefaults({color: '#fafafa'});
     $stateProvider
 
@@ -13,9 +13,21 @@ dentist.config(function($stateProvider , $urlRouterProvider , usSpinnerConfigPro
             url: "/index",
             templateUrl: "app/menus/main_menu.html",
             controller: 'MainCtrl'
-        });
+        })
 
-        //todo dossier state
+        .state('dossier', {
+            url: "/dossier",
+            templateUrl: "app/menus/dossier_menu.html",
+            controller: 'MainDossierCtrl'
+        })
+
+        .state('search_dossier', {
+            parent: "index",
+            url: "/search_dossier",
+            template: "<search_dossier></search_dossier>"
+        })
+
+    ;
 
     $urlRouterProvider.otherwise("/index");
 

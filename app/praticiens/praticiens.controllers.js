@@ -1,4 +1,5 @@
 angular.module('dentist.praticiens')
+
     .controller('LoginCtrl',function($scope,connections){
         $scope.start = function(){
 
@@ -27,6 +28,10 @@ angular.module('dentist.praticiens')
 
         $scope.delete = function(praticien){
             $scope.startSpin();
+            if(!confirm("Confirm : delete DR. " + praticien.name + " " + praticien.last_name )){
+                $scope.stopSpin();
+                return 1;
+            }
             praticiens.delete(praticien.id).then(
                 function(){
                     var index = $scope.praticiens.indexOf(praticien);
@@ -42,7 +47,6 @@ angular.module('dentist.praticiens')
         }
 
     })
-
     .controller('NewCtrl',function($scope , praticiens, $state){
         $scope.title = "Ajoute Un Praticien :";
         $scope.save = function(user){
@@ -62,7 +66,6 @@ angular.module('dentist.praticiens')
             );
         }
     })
-
     .controller('EditCtrl',function($scope , praticiens, $stateParams, $state){
         $scope.startSpin();
         $scope.user = { name: '', last_name: '' };
@@ -92,7 +95,6 @@ angular.module('dentist.praticiens')
             );
         }
     })
-
     .controller('ViewCtrl', function($scope,praticiens,$stateParams){
         $scope.startSpin();
         $scope.praticien = {};
