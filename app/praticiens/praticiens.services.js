@@ -98,10 +98,10 @@ angular.module('dentist.praticiens')
                return deferred.promise;
            },
            getCurrent: function (){
-               return $cookies.current_praticien ? JSON.parse($cookies.current_praticien) : {};
+               return $cookies.getObject('current_praticien') ? $cookies.getObject('current_praticien') : {};
            },
            setCurrent: function (praticien){
-               $cookies.current_praticien = JSON.stringify(praticien);
+               $cookies.putObject('current_praticien',praticien);
                return 1;
            }
 
