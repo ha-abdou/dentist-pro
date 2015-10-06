@@ -77,4 +77,43 @@ angular.module('dentist.db')
     .factory('toSqlSafe' , function(){
         return  function(str){return (str + '').replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0')};
     })
+    .factory('toSqlDate' , function(){
+        return function(date){
+            Date.prototype.yyyymmdd = function() {
+                var yyyy = this.getFullYear().toString();
+                var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+                var dd  = this.getDate().toString();
+                return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0" + dd[0]); // padding
+            };
+            if(!date){
+                return "0000-00-00";
+            }
+            return date.yyyymmdd();
+        }
+    })
+    .factory('getCurrentDateTime',function(toSqlDateTime){
+        return function(){
+            return toSqlDateTime(new Date());
+        }
+    })
+    .factory('toSqlDateTime',function(){
+        return function(date){
+            Date.prototype.yyyymmddhhmmss = function() {
+                var yyyy = this.getFullYear().toString();
+                var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+                var dd  = this.getDate().toString();
+                var h = this.getHours().toString();
+                var m = this.getMinutes().toString();
+                var s = this.getSeconds().toString();
+
+                return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0" + dd[0]) +
+                        " " + (h[1]?h:"0"+h[0]) + ":" + (m[1]?m:"0"+m[0]) + ":" + (s[1]?s:"0"+s[0])
+                    ; // padding
+            };
+            if(!date){
+                return "0000-00-00 00:00:00";
+            }
+            return date.yyyymmddhhmmss();
+        }
+    })
 ;

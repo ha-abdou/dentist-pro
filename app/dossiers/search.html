@@ -37,7 +37,7 @@
             <tr ng-repeat="dossier in dossiers | filter:search:strict">
                 <td>{{dossier.id}}</td>
                 <td>{{dossier.name + " " + dossier.last_name}}</td>
-                <td>{{dossier.birthday | date}}</td>
+                <td><div ng-if="dossier.birthday != '0000-00-00'">{{dossier.birthday | date}}</div></td>
                 <td>
                     <a href="" class="btn btn-success btn-raised btn-xs bm">Ouvrir</a>
                 </td>

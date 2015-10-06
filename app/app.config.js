@@ -21,11 +21,6 @@ dentist.config(function($stateProvider , $urlRouterProvider , usSpinnerConfigPro
             controller: 'MainDossierCtrl'
         })
 
-        .state('search_dossier', {
-            parent: "index",
-            url: "/search_dossier",
-            template: "<search_dossier></search_dossier>"
-        })
 
     ;
 
