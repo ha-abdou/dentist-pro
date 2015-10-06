@@ -1,0 +1,13 @@
+/.idea
+/server
+/locales
+/node_modules
+/d3dcompiler_47.dll
+/ffmpegsumo.dll
+/icudtl.dat
+/libEGL.dll
+/libGLESv2.dll
+/nw.exe
+/nw.pak
+/nwjc.exe
+/pdf.dll
