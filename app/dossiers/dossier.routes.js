@@ -18,6 +18,12 @@ angular.module('dentist.dossier')
                 url: "/search_dossier/:id",
                 template: "<search_dossier></search_dossier>"
             })
+            .state('home',{
+                parent: 'dossier',
+                url: '/:id',
+                templateUrl: 'app/dossiers/home.html',
+                controller: 'HomeCtrl'
+            })
 
         ;
     }

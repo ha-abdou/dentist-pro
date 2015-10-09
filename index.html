@@ -24,9 +24,17 @@
     <title>Dentist Pro</title>
 
 </head>
+<style>
+    .modal-backdrop{display: none}
+    .modal{background-color: rgba(40, 40, 40, 0.63);}
+</style>
+
+
 
 <body ng-app="dentist">
-
+    <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1">
+        <div id="custom-spinner" class=""></div>
+    </span>
     <div ui-view></div>
 
 
@@ -75,6 +83,12 @@
 <script src="app/dossiers/dossier.routes.js"></script>
 <script src="app/dossiers/dossier.directives.js"></script>
 <script src="app/dossiers/dossier.services.js"></script>
+
+<script src="app/dossiers/reglements/reglements.module.js"></script>
+<script src="app/dossiers/reglements/reglements.routes.js"></script>
+<script src="app/dossiers/reglements/reglements.services.js"></script>
+<script src="app/dossiers/reglements/reglements.controllers.js"></script>
+<script src="app/dossiers/reglements/reglements.directives.js"></script>
 <!-- end js App -->
 
 <script>

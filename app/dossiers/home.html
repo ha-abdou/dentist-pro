@@ -1,0 +1,115 @@
+<div class="jumbotron" style="margin-left: 20px;margin-right: 20px ">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">MR. {{dossier.name + " " + dossier.last_name}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <h4 class="col-xs-4">code : {{dossier.id}}</h4>
+                        <h4 class="col-xs-8">Cree le : {{dossier.created_at | date}}</h4>
+                    </div>
+                    <div class="row">
+                        <h4 class="col-xs-4">age : todo</h4>
+                        <h4 class="col-xs-8">Date naissance : <span ng-if="dossier.birthday != '0000-00-00'">{{dossier.birthday | date}}</span> </h4>
+                    </div>
+                    <h4>Adresse : {{dossier.adresse}} </h4>
+                    <h4>Email : {{dossier.email}} </h4>
+                    <h4>Tel : <span ng-if="dossier.tel != 0">{{dossier.tel}}</span> </h4>
+                    <h4>Derniere visite :  todo </h4>
+                </div>
+            </div>
+
+            <div class="row sample shadow-z-2">
+                <div class="col-xs-4"><p>Montant du : {{dossier.m_du}}</p></div>
+                <div class="col-xs-4"><p>Montant soin : {{dossier.m_soin}}</p></div>
+                <div class="col-xs-4"><p>Avoirs : {{dossier.avoirs}}</p></div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6">
+
+
+            <table class="table table-striped table-hover ">
+                <thead>
+                <tr>
+                    <th>type</th>
+                    <th>libelle</th>
+                    <th>date</th>
+                    <th>action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>commenter</td>
+                    <td>le titre</td>
+                    <td>27/07/2015</td>
+                    <td>
+                        <a href="javascript:void(0)" class="btn btn-info btn-raised btn-xs bm">Voir</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>reglement</td>
+                    <td>2000</td>
+                    <td>26/07/2015</td>
+                    <td>
+                        <a href="javascript:void(0)" class="btn btn-info btn-raised btn-xs bm">Voir</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>soin</td>
+                    <td>type du soin</td>
+                    <td>25/07/2015</td>
+                    <td>
+                        <a href="javascript:void(0)" class="btn btn-info btn-raised btn-xs bm">Voir</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>commenter</td>
+                    <td>le titre</td>
+                    <td>27/07/2015</td>
+                    <td>
+                        <a href="javascript:void(0)" class="btn btn-info btn-raised btn-xs bm">Voir</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>reglement</td>
+                    <td>2000</td>
+                    <td>26/07/2015</td>
+                    <td>
+                        <a href="javascript:void(0)" class="btn btn-info btn-raised btn-xs bm">Voir</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>soin</td>
+                    <td>type du soin</td>
+                    <td>25/07/2015</td>
+                    <td>
+                        <a href="javascript:void(0)" class="btn btn-info btn-raised btn-xs bm">Voir</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>commenter</td>
+                    <td>le titre</td>
+                    <td>27/07/2015</td>
+                    <td>
+                        <a href="javascript:void(0)" class="btn btn-info btn-raised btn-xs bm">Voir</a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    initMaterial();
+</script>

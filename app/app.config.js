@@ -18,7 +18,7 @@ dentist.config(function($stateProvider , $urlRouterProvider , usSpinnerConfigPro
         .state('dossier', {
             url: "/dossier",
             templateUrl: "app/menus/dossier_menu.html",
-            controller: 'MainDossierCtrl'
+            controller: 'MainCtrl'
         })
 
 

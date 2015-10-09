@@ -18,7 +18,7 @@ angular.module('dentist.praticiens')
                 $scope.switch = function(praticien){
                     praticiens.setCurrent(praticien);
                     $scope.setCurrent(praticien) ;
-                    $state.go('praticiens_list');
+                    $state.go('search_dossier');
                 };
 
             }

@@ -43,6 +43,23 @@ angular.module('dentist.dossier')
                     }
                 );
                 return deferred.promise;
+            },
+            getById: function(id){
+                var query = "SELECT * FROM patients WHERE id='" + id + "'";
+
+                var deferred = $q.defer();
+
+                connections.query(query)
+                    .then(
+                    function(rows){
+                        deferred.resolve(rows[0]);
+                    },
+                    function(){
+                        //error
+                        deferred.reject();
+                    }
+                );
+                return deferred.promise;
             }
         }
     }
