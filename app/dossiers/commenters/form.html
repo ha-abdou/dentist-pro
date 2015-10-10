@@ -1,0 +1,50 @@
+<div class="modal fade" id="add-commenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <form name="form" novalidate>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Entree un commenter:</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Date</span>
+                                <div class=" col-xs-4">
+                                    <input type="date" class="form-control" ng-model="commenter.date">
+                                </div>
+                                <div class=" col-xs-4">
+                                    <input type="time" class="form-control"  ng-model="commenter.time">
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="aaa" class="control-label col-sm-2">label :</label>
+                        <div class="col-sm-10">
+                            <textarea id="aaa" class="form-control" ng-model="commenter.label" required></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="save_commenter(commenter)" ng-disabled="form.$invalid">Save</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

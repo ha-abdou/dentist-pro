@@ -1,18 +1,28 @@
 angular.module('dentist.dossier')
 
-    .controller('HomeCtrl',function($scope , dossiers , $stateParams){
+    .controller('HomeCtrl',function($scope , dossiers , $stateParams , $rootScope){
         $scope.startSpin();
 
         dossiers.getById($stateParams.id).then(
             function(dossier){
                 $scope.dossier = dossier;
-                $scope.stopSpin();
+                _getLastAction();
             },function(){
                 $scope.stopSpin();
             }
         );
 
-
+        function _getLastAction(){
+            dossiers.getRelativeAction($stateParams.id).then(
+                function(rows){
+                    $rootScope.list = rows ;
+                    $scope.stopSpin();
+                },
+                function(){
+                    $scope.stopSpin();
+                }
+            );
+        }
 
     })
 

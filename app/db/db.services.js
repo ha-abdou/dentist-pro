@@ -27,10 +27,10 @@ angular.module('dentist.db')
 
                 console.log(q);
                 connection.query(q, function(err, rows) {
-                    console.log(err);
-                    // todo remove on prod
-                    //deferred.resolve(rows);
-                    setTimeout(function(){deferred.resolve(rows);}, 500)
+                    if(err) console.log(err);
+
+                    deferred.resolve(rows);
+                    //setTimeout(function(){deferred.resolve(rows);}, 500)
 
                 });
 
