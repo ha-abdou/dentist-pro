@@ -3,5 +3,5 @@ angular.module('dentist.reglements',[
 
     'ui.router',
 
-    'dentist.db'
+    'dentist.db','dentist.praticiens'
 ]);

@@ -1,10 +1,13 @@
 *{
-    -webkit-user-select: none;user-select:none;-o-user-select:none;
+    -webkit-user-select: none;
+    user-select:none;
+}
+h1,h2,h3,h4,h5,h6,p,th,td{
     cursor: default;
 }
 
-
-a{cursor: pointer;}
+a {
+    cursor: pointer !important;}
 
 .custom-spinner{
     background-color: rgba(0, 0, 0, 0.62);
