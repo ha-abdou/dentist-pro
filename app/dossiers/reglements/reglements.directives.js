@@ -4,7 +4,7 @@ angular.module('dentist.reglements')
 function _addReglement(){
     function _controller($stateParams , $scope , reglements , getCurrentDateTime , praticiens , $filter , $rootScope){
         $scope.commenter = {};
-        $scope.save = function(reglement){
+        $scope.save_reglement = function(reglement){
 
             if(!reglement.amount) return 0;
 
@@ -22,6 +22,7 @@ function _addReglement(){
         };
 
         function success(p,t){
+            $rootScope.updateReglement();
 
             var item = {};
             item.type = "reglement";

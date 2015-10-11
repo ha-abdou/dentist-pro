@@ -1,5 +1,5 @@
 angular.module('dentist.menus',[
     'ui.router',
 
-    'dentist.commenters','dentist.reglements'
+    'dentist.commenters','dentist.reglements','dentist.soins'
 ]);

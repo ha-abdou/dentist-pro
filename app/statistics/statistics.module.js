@@ -1,1 +1,7 @@
-angular.module('dentist.statistics',['ui.router']);
+angular.module('dentist.statistics',[
+    'ngAnimate','ngCookies',
+
+    'ui.router',
+
+    'dentist.db'
+]);

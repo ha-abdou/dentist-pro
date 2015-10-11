@@ -5,7 +5,8 @@ angular.module('dentist.statistics')
             .state('recette', {
                 parent: 'index',
                 url: "/statistics/recette",
-                templateUrl: "app/statistics/recette.html"
+                templateUrl: "app/statistics/recette.html",
+                controller: 'recetteCtrl'
             });
 
 

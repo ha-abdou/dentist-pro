@@ -35,8 +35,31 @@ function _reglements($q,connections){
         return deferred.promise;
     }
 
+    function _getReglement(id){
+        var query = "SELECT SUM(label) as total " +
+            "FROM options " +
+            "WHERE type='reglement' AND patient_id='" + id + "'" +
+            ";";
+
+        var deferred = $q.defer();
+
+        connections.query(query)
+            .then(
+            function(rows){
+                var r = rows[0].total;
+                deferred.resolve(r ? r : 0);
+            },
+            function(){
+                //error
+                deferred.reject();
+            }
+        );
+        return deferred.promise;
+    }
+
 
     return{
-        new: _new
+        new: _new,
+        getReglement: _getReglement
     }
 }

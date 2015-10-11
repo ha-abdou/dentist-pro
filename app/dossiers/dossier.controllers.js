@@ -1,16 +1,20 @@
 angular.module('dentist.dossier')
 
-    .controller('HomeCtrl',function($scope , dossiers , $stateParams , $rootScope){
+    .controller('HomeCtrl',function($scope , dossiers , $stateParams , $rootScope , reglements , soins ){
+        $scope.total_reglement = 0;
+        $scope.total_soin = 0;
         $scope.startSpin();
 
-        dossiers.getById($stateParams.id).then(
-            function(dossier){
-                $scope.dossier = dossier;
-                _getLastAction();
-            },function(){
-                $scope.stopSpin();
-            }
-        );
+        function _getDossier(){
+            dossiers.getById($stateParams.id).then(
+                function(dossier){
+                    $scope.dossier = dossier;
+                    _getLastAction();
+                },function(){
+                    $scope.stopSpin();
+                }
+            );
+        }
 
         function _getLastAction(){
             dossiers.getRelativeAction($stateParams.id).then(
@@ -23,6 +27,26 @@ angular.module('dentist.dossier')
                 }
             );
         }
+
+        $rootScope.updateReglement = function(s) {
+            reglements.getReglement($stateParams.id).then(function(r){
+                $scope.total_reglement = r ;
+            });
+            //todo fix this bug on add soin directive
+            if(s){
+                $scope.total_soin += s ;
+            }else{
+                soins.getAmount($stateParams.id).then(function(r){
+                    $scope.total_soin = r ;
+                });
+            }
+
+        };
+
+        _getDossier();
+        $rootScope.updateReglement();
+
+
 
     })
 

@@ -96,6 +96,11 @@ angular.module('dentist.db')
             return toSqlDateTime(new Date());
         }
     })
+    .factory('getCurrentDate',function(toSqlDate){
+        return function(){
+            return toSqlDate(new Date());
+        }
+    })
     .factory('toSqlDateTime',function(){
         return function(date){
             Date.prototype.yyyymmddhhmmss = function() {
