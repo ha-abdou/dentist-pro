@@ -6,13 +6,15 @@ function _recette($q,connections){
         var query =
             "SELECT * " +
             "FROM options " +
-            "WHERE created_at " +
+            "INNER JOIN patients " +
+            "ON options.patient_id=patients.id " +
+            "WHERE options.created_at " +
             "between " +
                 "'" + from + "' " +
                 "and " +
                 "'" + to + "' " +
             "AND " +
-                "type='reglement'"
+                "options.type='reglement'"
             ;
 
         var deferred = $q.defer();
@@ -20,6 +22,7 @@ function _recette($q,connections){
         connections.query(query)
             .then(
             function(rows){
+                console.log(rows);
                 deferred.resolve(rows);
             },
             function(){

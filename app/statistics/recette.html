@@ -18,12 +18,12 @@
         <tbody>
 
         <tr ng-repeat="item in list">
-            <td>dx16qzs</td>
-            <td>Hassaine Abdel-illah</td>
-            <td>27/07/1994</td>
+            <td>{{item.patient_id}}</td>
+            <td>{{item.name + " " + item.last_name }}</td>
+            <td><div ng-if="item.birthday != '0000-00-00'">{{item.birthday | date}}</div></td>
             <td>{{item.label}}</td>
             <td>
-                <a href="dossier.html" class="btn btn-success btn-raised btn-xs bm">Ouvrir</a>
+                <a href="#/dossier/{{item.patient_id}}" class="btn btn-success btn-raised btn-xs bm">Ouvrir</a>
             </td>
         </tr>
 
