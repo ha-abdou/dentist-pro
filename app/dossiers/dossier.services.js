@@ -1,5 +1,5 @@
 angular.module('dentist.dossier')
-    .factory('dossiers',function($q , connections , toSqlSafe , toSqlDate , getCurrentDateTime){
+    .factory('dossiers',function($q , connections , toSqlSafe , toSqlDate , getCurrentDateTime , toSqlDateTime){
 
         return {
             all: function(){
@@ -36,6 +36,31 @@ angular.module('dentist.dossier')
                     .then(
                     function(rows){
                         deferred.resolve(rows.insertId);
+                    },
+                    function(){
+                        //error
+                        deferred.reject();
+                    }
+                );
+                return deferred.promise;
+            },
+            upDate: function(patient){
+                var query =
+                    "UPDATE patients SET " +
+                    "name='"   + toSqlSafe(patient.name) + "',"+
+                    "last_name='" + toSqlSafe(patient.last_name) + "',"+
+                    "birthday='" + toSqlDate(patient.birthday) + "',"+
+                    "adresse='" + toSqlSafe(patient.adresse) + "',"+
+                    "email='" + toSqlSafe(patient.email) + "',"+
+                    "tel='"    + patient.tel + "'"+
+                    "WHERE id=" + patient.id ;
+
+                var deferred = $q.defer();
+
+                connections.query(query)
+                    .then(
+                    function(rows){
+                        deferred.resolve(rows);
                     },
                     function(){
                         //error

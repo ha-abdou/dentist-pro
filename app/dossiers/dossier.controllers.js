@@ -9,6 +9,8 @@ angular.module('dentist.dossier')
             dossiers.getById($stateParams.id).then(
                 function(dossier){
                     $scope.dossier = dossier;
+                    $scope._dossier = $scope.dossier;
+                    $scope._dossier.birthday = $scope._dossier.birthday == "0000-00-00" ? undefined : $scope._dossier.birthday;
                     _getLastAction();
                 },function(){
                     $scope.stopSpin();
@@ -65,6 +67,5 @@ angular.module('dentist.dossier')
             )
         }
     })
-
 
 ;

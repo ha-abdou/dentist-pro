@@ -1,0 +1,65 @@
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <form name="edit_form" novalidate>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit :</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Nom:*</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" placeholder="name" ng-model="_dossier.name" required>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="form-group">
+                        <label for="last" class="col-sm-2 control-label">Prenom:*</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="last" placeholder="Prenom" ng-model="_dossier.last_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthday" class="col-sm-2 control-label">birthday:</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="birthday" placeholder="birthday" ng-model="_dossier.birthday">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel" class="col-sm-2 control-label">Telephone:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="tel" placeholder="telephone" ng-model="_dossier.tel">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" placeholder="email" ng-model="_dossier.email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adresse" class="col-sm-2 control-label">adresse:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="adresse" placeholder="adresse" ng-model="_dossier.adresse">
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="up_date(_dossier)" ng-disabled="edit_form.$invalid">Save</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

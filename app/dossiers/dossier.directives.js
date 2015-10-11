@@ -22,4 +22,32 @@ angular.module('dentist.dossier')
             }
         }
     })
+
+    .directive('editDossier',function(){
+        return{
+            templateUrl: 'app/dossiers/edit.html',
+            controller: function($scope , dossiers){
+
+                $scope.up_date = function(user){
+
+                    $scope.startSpin();
+                    dossiers.upDate(user).then(
+                        function(){
+                            $scope.dossier = angular.copy($scope._dossier);
+                            $('#edit').modal('hide');
+                            $scope.stopSpin();
+                        },
+                        function(){
+                            $('#edit').modal('hide');
+                            $scope.stopSpin();
+
+                        }
+                    )
+                }
+
+
+            }
+
+        }
+    })
 ;

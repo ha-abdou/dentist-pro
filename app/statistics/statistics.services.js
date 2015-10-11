@@ -22,7 +22,6 @@ function _recette($q,connections){
         connections.query(query)
             .then(
             function(rows){
-                console.log(rows);
                 deferred.resolve(rows);
             },
             function(){
