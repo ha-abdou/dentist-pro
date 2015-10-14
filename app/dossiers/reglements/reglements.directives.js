@@ -1,39 +1,30 @@
 angular.module('dentist.reglements')
-    .directive('addReglement', _addReglement );
+    .directive('addReglement', _addReglement )
+    .directive('editReglement', _editReglement );
 
 function _addReglement(){
-    function _controller($stateParams , $scope , reglements , getCurrentDateTime , praticiens , $filter , $rootScope){
-        $scope.commenter = {};
+    function _controller($stateParams , $scope , reglements , getCurrentDateTime , praticiens , $filter , $rootScope , Time){
+        $rootScope.reglement = {};
+
         $scope.save_reglement = function(reglement){
 
             if(!reglement.amount) return 0;
 
             $scope.startSpin();
 
-            if(reglement.time == null && reglement.date == null ){
-                var t = getCurrentDateTime();
+            var dateTime = Time.created_at(reglement.date ,reglement.time) ;
 
-                reglements.new(reglement , $stateParams.id , praticiens.getCurrent().id , t)
-                    .then(success(praticiens.getCurrent().id,t),error());
+            reglements.new(reglement , $stateParams.id , praticiens.getCurrent().id , dateTime)
+                    .then(success(praticiens.getCurrent().id,dateTime),error());
 
-            }else{
-                //todo if the user add custom date
-            }
         };
 
         function success(p,t){
             $rootScope.updateReglement();
 
-            var item = {};
-            item.type = "reglement";
-            item.label = $scope.reglement.amount;
-            t = Date.parse(t);
-            item.created_at = $filter('date')(t);
-            item.praticien_id = p;
-            //todo order
-            $rootScope.list.push(item);
+            $scope._getLastAction();
 
-            $scope.reglement = {};
+            $rootScope.reglement = {};
             $('#add-reglement').modal('hide');
             $scope.stopSpin();
 
@@ -41,7 +32,7 @@ function _addReglement(){
 
         function error(){
             //todo alert error
-            $('#add-reglement').modal('hide');
+            //$('#add-reglement').modal('hide');
             $scope.stopSpin();
         }
     }
@@ -51,3 +42,70 @@ function _addReglement(){
         controller: _controller
     };
 }
+
+function _editReglement(){
+    function _controller($scope , reglements , $rootScope , Time){
+
+        $scope.edit_reglement = function(reglement){
+
+            if(!reglement.amount) return 0;
+
+            $scope.startSpin();
+
+            reglement.created_at = Time.created_at(reglement.date ,reglement.time);
+
+            reglements.upDateReglement(reglement).then(
+                function(){
+                    $('#edit-reglement').modal('hide');
+                    $scope._reglement = {};
+                    $scope.stopSpin();
+                    $scope._getLastAction();
+                    $rootScope.updateReglement();
+                },
+                function(){
+                    //todo alert error
+                    $scope.stopSpin();
+                }
+            );
+
+        };
+
+        function success(){
+            //todo reload
+        }
+
+        function error(){
+            //todo alert error
+            $('#edit-reglement').modal('hide');
+            $scope.stopSpin();
+        }
+    }
+
+    return {
+        templateUrl: 'app/dossiers/reglements/edit.html',
+        controller: _controller
+    };
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

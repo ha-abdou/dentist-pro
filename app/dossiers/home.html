@@ -1,5 +1,4 @@
 
-
 <div class="jumbotron" style="margin-left: 20px;margin-right: 20px ">
     <div class="row">
         <div class="col-sm-4">
@@ -45,13 +44,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="item in list | orderBy:'-created_at'">
+                <tr ng-repeat="item in list | orderBy:'-created_at'" class="{{item.type}}">
                     <td>{{item.type}}</td>
                     <td>{{item.label}}</td>
                     <td>{{item.praticien_id}}</td>
                     <td>{{item.created_at | date}}</td>
                     <td>
                         <a href="javascript:void(0)" class="btn btn-info btn-raised btn-xs bm">Voir</a>
+                        <a ng-click="edit(item)" class="btn btn-primary btn-raised btn-xs bm">Edit</a>
+                        <a ng-click="view(item)" class="btn btn-danger btn-raised btn-xs bm">Delete</a>
                     </td>
                 </tr>
 
@@ -64,13 +65,19 @@
 
 </div>
 
+<!-- modal element -->
 <add-reglement></add-reglement>
+<edit-reglement></edit-reglement>
 
 <add-commenter></add-commenter>
+<edit-commenter></edit-commenter>
 
 <add-soin></add-soin>
 
+
 <edit-dossier></edit-dossier>
+
+
 <script>
     initMaterial();
 </script>

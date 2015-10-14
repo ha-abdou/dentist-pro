@@ -3,18 +3,7 @@ angular.module('dentist.dossier')
 
         return {
             all: function(){
-                var deferred = $q.defer();
-                connections.query('SELECT id,name,last_name,birthday FROM patients')
-                    .then(
-                    function(rows){
-                        deferred.resolve(rows);
-                    },
-                    function(){
-                        //error
-                        deferred.reject();
-                    }
-                );
-                return deferred.promise;
+                return connections.query('SELECT id,name,last_name,birthday FROM patients');
             },
             new : function(patient){
 
@@ -30,19 +19,7 @@ angular.module('dentist.dossier')
                         getCurrentDateTime() + "'" +
                     ")";
 
-                var deferred = $q.defer();
-
-                connections.query(query)
-                    .then(
-                    function(rows){
-                        deferred.resolve(rows.insertId);
-                    },
-                    function(){
-                        //error
-                        deferred.reject();
-                    }
-                );
-                return deferred.promise;
+                return connections.query(query);
             },
             upDate: function(patient){
                 var query =
@@ -55,19 +32,7 @@ angular.module('dentist.dossier')
                     "tel='"    + patient.tel + "'"+
                     "WHERE id=" + patient.id ;
 
-                var deferred = $q.defer();
-
-                connections.query(query)
-                    .then(
-                    function(rows){
-                        deferred.resolve(rows);
-                    },
-                    function(){
-                        //error
-                        deferred.reject();
-                    }
-                );
-                return deferred.promise;
+                return connections.query(query);
             },
             getById: function(id){
                 var query = "SELECT * FROM patients WHERE id='" + id + "'";
@@ -89,19 +54,7 @@ angular.module('dentist.dossier')
             getRelativeAction: function(id){
                 var query = "SELECT * FROM options WHERE patient_id='" + id + "'";
 
-                var deferred = $q.defer();
-
-                connections.query(query)
-                    .then(
-                    function(rows){
-                        deferred.resolve(rows);
-                    },
-                    function(){
-                        //error
-                        deferred.reject();
-                    }
-                );
-                return deferred.promise;
+                return connections.query(query);
             }
         }
     }

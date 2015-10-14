@@ -7,10 +7,12 @@
     <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- end font-awesome -->
 
-    <!-- css Bootstrap Material Design <link href="vendor/css/roboto.css" rel="stylesheet">-->
+    <!-- css Bootstrap Material Design <link href="vendor/css/roboto.css" rel="stylesheet">
+    <link href="node_modules/bootstrap-material/dist/css/ripples.css" rel="stylesheet">
+    -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
-    <link href="node_modules/bootstrap-material/dist/css/ripples.css" rel="stylesheet">
+
     <!-- todo use npm -->
     <link href="vendor/css/material.css" rel="stylesheet">
     <!-- end css Bootstrap Material Design -->
@@ -40,10 +42,11 @@
 
 <!-- ======================================= -->
 
-<!-- js Bootstrap Material Design -->
+<!-- js Bootstrap Material Design
+<script src="node_modules/bootstrap-material/dist/js/ripples.js"></script>
+-->
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script src="node_modules/bootstrap-material/dist/js/ripples.js"></script>
 <script src="node_modules/bootstrap-material/dist/js/material.js"></script>
 <!-- ens js Bootstrap Material Design -->
 
@@ -102,11 +105,18 @@
 <script src="app/dossiers/soins/soins.services.js"></script>
 <script src="app/dossiers/soins/soins.controllers.js"></script>
 <script src="app/dossiers/soins/soins.directives.js"></script>
+
+<script src="app/dossiers/images/images.module.js"></script>
+<script src="app/dossiers/images/images.routes.js"></script>
+<script src="app/dossiers/images/images.services.js"></script>
+<script src="app/dossiers/images/images.controllers.js"></script>
+<script src="app/dossiers/images/images.directives.js"></script>
 <!-- end js App -->
 
 <script>
+
     function initMaterial() {
-        $.material.init();
+        //$.material.init();
     }
     $(document).ready(function() {
         initMaterial();

@@ -1,5 +1,5 @@
 angular.module('dentist.menus')
-    .controller('MainCtrl' , function($scope , usSpinnerService , praticiens , $state ){
+    .controller('MainCtrl' , function($scope , usSpinnerService , praticiens , $state , $stateParams , $location ){
         $scope.startSpin = function(){
             usSpinnerService.spin('spinner-1');
         };
@@ -13,6 +13,20 @@ angular.module('dentist.menus')
             $scope.current_praticien = "DR." + praticien.name + " " + praticien.last_name;
 
         };
+
+        $scope.open_images = function(){
+            var img_win = gui.Window.open("index.html#" + $location.path() + "/images" );
+
+            img_win.on('close', function() {
+                this.hide();
+                if(confirm('save the change')){
+                    //todo save
+                }
+                this.close(true);
+            });
+
+        };
+
 
         if (praticiens.getCurrent().id) {
             $scope.setCurrent(praticiens.getCurrent());

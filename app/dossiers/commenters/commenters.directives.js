@@ -1,5 +1,6 @@
 angular.module('dentist.commenters')
-    .directive('addCommenter' , _addCommenter);
+    .directive('addCommenter' , _addCommenter)
+    .directive('editCommenter' , _editCommenter);
 
 function _addCommenter (){
     function _controller($stateParams , $scope , commenters , getCurrentDateTime , praticiens , $filter , $rootScope){
@@ -23,14 +24,7 @@ function _addCommenter (){
 
         function success(p,t){
 
-            var item = {};
-            item.type = "commenter";
-            item.label = $scope.commenter.label;
-            t = Date.parse(t);
-            item.created_at = $filter('date')(t);
-            item.praticien_id = p;
-            //todo order
-            $rootScope.list.push(item);
+            $scope._getLastAction();
 
             $scope.commenter = {};
             $('#add-commenter').modal('hide');
@@ -49,4 +43,38 @@ function _addCommenter (){
         templateUrl: 'app/dossiers/commenters/form.html',
         controller: _controller
     }
+}
+
+function _editCommenter(){
+    function _controller($scope , commenters , Time){
+
+        $scope.update_commenter = function(commenter){
+
+            if(!commenter.label) return 0;
+
+            $scope.startSpin();
+
+            commenter.created_at = Time.created_at(commenter.date ,commenter.time);
+
+            commenters.upDateCommenter(commenter).then(
+                function(){
+                    $('#edit-commenter').modal('hide');
+                    $scope._commenter = {};
+                    $scope._getLastAction();
+                    $scope.stopSpin();
+                },
+                function(){
+                    //todo alert error
+                    $scope.stopSpin();
+                }
+            );
+
+        };
+
+    }
+
+    return {
+        templateUrl: 'app/dossiers/commenters/edit.html',
+        controller: _controller
+    };
 }

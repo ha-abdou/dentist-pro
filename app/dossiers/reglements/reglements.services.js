@@ -57,9 +57,31 @@ function _reglements($q,connections){
         return deferred.promise;
     }
 
+    function _upDateReglement(reglement){
+        var query =
+            "UPDATE options SET " +
+            "`label` = '" + reglement.amount + "' ," +
+            "`created_at` = '" + reglement.created_at + "' " +
+            "WHERE `id` = " + reglement.id ;
+        var deferred = $q.defer();
+
+        connections.query(query)
+            .then(
+            function(rows){
+
+                deferred.resolve(rows);
+            },
+            function(){
+                //error
+                deferred.reject();
+            }
+        );
+        return deferred.promise;
+    }
 
     return{
         new: _new,
-        getReglement: _getReglement
+        getReglement: _getReglement,
+        upDateReglement: _upDateReglement
     }
 }

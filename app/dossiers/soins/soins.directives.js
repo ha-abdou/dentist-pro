@@ -24,14 +24,8 @@ function _addSoin(){
         function success(p,t){
             $rootScope.updateReglement($scope.soin.amount);
 
-            var item = {};
-            item.type = "soin";
-            item.label = $scope.soin.label;
-            t = Date.parse(t);
-            item.created_at = $filter('date')(t);
-            item.praticien_id = p;
-            //todo order
-            $rootScope.list.push(item);
+            $scope._getLastAction();
+
 
             $scope.soin = {};
             $('#add-soin').modal('hide');
